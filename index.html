@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Conference ticket generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Top section-->
+<header>
+  <img src="assets/images/logo-full.svg" class="logo"><br>
+  <h1>Your Journey to Coding&nbsp;Conf <br>2025 Starts Here!</h1>
+  <p>Secure your spot at next year's biggest coding conference.</p>
+</header>
+
+<!-- Form starts -->
+<form action="POST" id="form">
+  <label for="avatar-file">Upload Avatar</label>
+  <div class="upload-area" onclick="document.getElementById('avatar-file').click()">
+      <input type="file" id="avatar-file" name="avatar" accept="image/jpeg,image/png" />
+      <div class="upload-icon"><img src="assets/images/icon-upload.svg" alt=""></div>
+      <div class="upload-text">
+          Drag and drop or click to upload
+      </div>
+  </div>
+  <div class="upload-subtext">
+    <img src="assets/images/icon-info.svg" alt="info">Upload your photo (JPG or PNG, max size: 500KB)
+  </div>
+  
+  <!-- Preview area (shown when image is uploaded) -->
+  <div class="image-preview-area" id="image-preview-area" style="display: none;">
+    <div class="image-preview">
+      <img id="preview-image" src="" alt="Preview" />
+    </div>
+    <div class="preview-controls">
+      <button type="button" class="remove-btn" onclick="removeImage()">Remove Image</button>
+      <button type="button" class="change-btn" onclick="changeImage()">Change Image</button>
+    </div>
+  </div>
+
+  <label for="name">Full Name</label><br>
+  <input type="text" id="name" required><br>
+
+  <label for="email">Email Address</label><br>
+  <input type="email" id="email" name="email" placeholder="example@email.com" required><br>
+  
+  <label for="G-Username">GitHub Username</label><br>
+  <input type="G-Username" id="G-Username" name="G-Username" placeholder="@yourusername" required><br>
+  
+  <button type="submit" onclick="('#ticket')">Generate My Ticket</button>
+</form>
+<!-- Form ends -->
+
+<!-- Generated tickets starts
+<div class="step" id="ticket">
+
+  <h1>Congrats, @Full Name!<br>Your ticket is ready.</h1>
+  <p>We've emailed your ticket to @Email Address and will send updates in the run up to the event.</p>
+  <div class="pattern-ticket">
+    <h1><img src="assets/images/logo-mark.svg">Coding Conf</h1>
+    <p>Jan 31, 2025 / Austin, TX</p>
+
+
+  </div>
+</div>-->
+<!-- Generated tickets ends
+  <div class="attribution">
+    Coded by <a href="#">Ebiesuwa Sarah</a>.
+  </div> -->
+  <script src="script.js"></script>
+</body>
+</html>

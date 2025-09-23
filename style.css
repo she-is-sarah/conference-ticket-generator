@@ -1,0 +1,217 @@
+*{
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Inconsolata';
+    src: url(assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf);
+}
+
+body{
+    font-family: 'Inconsolata'; 
+    background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-desktop.png");
+    background-position:  center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    margin: 0;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 250px;   /* adjust size */
+  height: 250px;
+  background: url("assets/images/pattern-squiggly-line-top.svg") no-repeat top right;
+  background-size: contain;
+  pointer-events: none; /* don’t block clicks */
+  z-index: 1;
+}
+
+/* Bottom-left decoration */
+body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 500px;   /* adjust size */
+  height: 500px;
+  background: url("assets/images/pattern-squiggly-line-bottom-desktop.svg") no-repeat bottom left;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.logo{
+    width:120px;
+    margin-top: 15px;
+}
+header{
+    text-align: center;
+
+}
+header h1{
+    font-weight: 800;
+    font-size: 3em;
+    color: hsl(0, 0%, 100%);
+}
+header p{
+    font-size: 15px;
+    font-weight: 400;
+    color: hsl(245, 15%, 58%)
+}
+
+form{
+    width: 300px;
+    margin: 0 auto ;
+}
+
+#form label{
+    color: hsl(0, 0%, 100%);
+    
+}
+
+/* Target only the avatar upload label */
+label[for="avatar-file"] {
+    color: hsl(0, 0%, 100%);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Hide the default file input */
+#avatar-file {
+    display: none;
+}
+
+/* Style the upload area */
+.upload-area {
+    border: 1.5px dashed hsl(245, 15%, 58%);
+    border-radius: 12px;
+    background-color: hsla(245, 19%, 35%, 0.3);
+    padding: 40px 20px;
+    margin-bottom:5px ;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    max-width: 400px;
+}
+
+.upload-area:hover {
+    border-color: hsl(13, 100%, 64%);
+    background-color: hsla(245, 19%, 35%, 0.5);
+}
+
+.upload-icon {
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding-top:5px ;
+    padding-bottom:5px ;
+    margin-bottom: 20px;
+    background-color: hsla(245, 19%, 35%, 0.3);
+    border-radius: 8px;
+    border:1px solid hsl(245, 15%, 58%);
+}
+
+
+/* Upload text */
+.upload-text {
+    color: hsl(0, 0%, 80%);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.upload-subtext {
+    color: hsl(245, 15%, 70%);
+    font-size: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 350px;
+}
+
+/* Image preview area styles */
+.image-preview-area {
+    border: 1.5px dashed hsl(245, 15%, 58%);
+    border-radius: 12px;
+    background-color: hsla(245, 19%, 35%, 0.3);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 350px;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-preview {
+    flex-shrink: 0;
+}
+
+.image-preview img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid hsl(245, 15%, 58%);
+}
+
+.preview-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.remove-btn, .change-btn {
+    padding: 8px 16px;
+    border: 1px solid hsl(245, 15%, 58%);
+    border-radius: 6px;
+    background-color: hsla(245, 19%, 35%, 0.5);
+    color: hsl(0, 0%, 100%);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+    background-color: hsl(0, 70%, 50%);
+    border-color: hsl(0, 70%, 50%);
+}
+
+.change-btn:hover {
+    background-color: hsl(13, 100%, 64%);
+    border-color: hsl(13, 100%, 64%);
+}
+
+/* Form */
+#form input{
+    border: 1px solid hsl(245, 15%, 58%);
+    border-radius: 8px;
+    width:350px;
+    background-color: hsla(245, 19%, 35%, 0.557);
+    padding: 15px;
+    margin: 10px  0px 20px 0px;
+    color: hsl(0, 0%, 100%);
+
+}
+#form button{
+    background-color: hsl(7, 71%, 60%);
+    color: hsl(248, 70%, 10%);
+    font-weight: 700;
+    width:350px;
+    text-align: center;
+    padding: 15px 0;
+    border: none;
+    border-radius: 8px;
+}
