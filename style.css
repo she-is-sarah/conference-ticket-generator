@@ -140,7 +140,7 @@ label[for="avatar-file"] {
     width: 350px;
 }
 
-/* Image preview area styles */
+/* Image preview area styles*/ 
 .image-preview-area {
     border: 1.5px dashed hsl(245, 15%, 58%);
     border-radius: 12px;
@@ -150,49 +150,41 @@ label[for="avatar-file"] {
     width: 350px;
     max-width: 400px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    text-align: center;
+    display: grid;
 }
-
 .image-preview {
     flex-shrink: 0;
 }
 
 .image-preview img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
     object-fit: cover;
     border-radius: 8px;
     border: 1px solid hsl(245, 15%, 58%);
+    
 }
 
 .preview-controls {
     display: flex;
-    flex-direction: column;
     gap: 8px;
-    flex: 1;
 }
 
 .remove-btn, .change-btn {
-    padding: 8px 16px;
-    border: 1px solid hsl(245, 15%, 58%);
+    padding: 8px 10px;
+    border: 1px;
     border-radius: 6px;
     background-color: hsla(245, 19%, 35%, 0.5);
     color: hsl(0, 0%, 100%);
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.remove-btn:hover {
-    background-color: hsl(0, 70%, 50%);
-    border-color: hsl(0, 70%, 50%);
-}
-
-.change-btn:hover {
-    background-color: hsl(13, 100%, 64%);
-    border-color: hsl(13, 100%, 64%);
-}
 
 /* Form */
 #form input{
@@ -205,7 +197,7 @@ label[for="avatar-file"] {
     color: hsl(0, 0%, 100%);
 
 }
-#form button{
+#form .submit{
     background-color: hsl(7, 71%, 60%);
     color: hsl(248, 70%, 10%);
     font-weight: 700;
@@ -214,4 +206,89 @@ label[for="avatar-file"] {
     padding: 15px 0;
     border: none;
     border-radius: 8px;
+    cursor: pointer;
+}
+
+#ticket{ 
+    display: none;
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+}
+#ticket h1{
+    font-size: 2.5em;
+}
+#ticket p{
+    font-size: 16px;
+}
+#ticket-name-display{
+    background: linear-gradient(45deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#ticket-email-display{
+    color: hsl(7, 86%, 67%);
+}
+
+.ticket {
+  background-image: url(assets/images/pattern-ticket.svg);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: 30em;
+  color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-top: 5em;
+}
+
+/* left section */
+.ticket-left {
+  flex: 3;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-info h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.event-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* user details */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.user-info p {
+  margin: 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* right section (ticket number) */
+.ticket-right {
+  flex: 1;
+  border-left: 2px dashed #666;
+  font-weight: bold;
+  transform: rotate(90deg);
 }

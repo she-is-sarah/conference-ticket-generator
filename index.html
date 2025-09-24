@@ -9,6 +9,7 @@
 </head>
 <body>
 <!--Top section-->
+<div id="form-step">
 <header>
   <img src="assets/images/logo-full.svg" class="logo"><br>
   <h1>Your Journey to Coding&nbsp;Conf <br>2025 Starts Here!</h1>
@@ -16,16 +17,16 @@
 </header>
 
 <!-- Form starts -->
-<form action="POST" id="form">
+<form method="POST" id="form">
   <label for="avatar-file">Upload Avatar</label>
-  <div class="upload-area" onclick="document.getElementById('avatar-file').click()">
+  <div class="upload-area" id="upload-area" onclick="document.getElementById('avatar-file').click()">
       <input type="file" id="avatar-file" name="avatar" accept="image/jpeg,image/png" />
       <div class="upload-icon"><img src="assets/images/icon-upload.svg" alt=""></div>
       <div class="upload-text">
           Drag and drop or click to upload
       </div>
   </div>
-  <div class="upload-subtext">
+  <div class="upload-subtext" id="upload-info">
     <img src="assets/images/icon-info.svg" alt="info">Upload your photo (JPG or PNG, max size: 500KB)
   </div>
   
@@ -46,27 +47,46 @@
   <label for="email">Email Address</label><br>
   <input type="email" id="email" name="email" placeholder="example@email.com" required><br>
   
-  <label for="G-Username">GitHub Username</label><br>
-  <input type="G-Username" id="G-Username" name="G-Username" placeholder="@yourusername" required><br>
+  <label for="github">GitHub Username</label><br>
+  <input type="text" id="github" name="github" placeholder="@yourusername" required><br>
   
-  <button type="submit" onclick="('#ticket')">Generate My Ticket</button>
+  <button type="submit" onclick="('#ticket')" class="submit">Generate My Ticket</button>
 </form>
 <!-- Form ends -->
+</div>
 
-<!-- Generated tickets starts
+<!-- Generated tickets starts -->
 <div class="step" id="ticket">
+  <img src="assets/images/logo-full.svg" class="logo"><br>
+  <h1 id="congrats-message">Congrats, <span id="ticket-name-display"></span>!<br>Your ticket is ready.</h1>
+  <p id="email-message">We've emailed your ticket to<br><span id="ticket-email-display"></span> and will send updates in<br> the run up to the event.</p>
 
-  <h1>Congrats, @Full Name!<br>Your ticket is ready.</h1>
-  <p>We've emailed your ticket to @Email Address and will send updates in the run up to the event.</p>
-  <div class="pattern-ticket">
-    <h1><img src="assets/images/logo-mark.svg">Coding Conf</h1>
-    <p>Jan 31, 2025 / Austin, TX</p>
+  <div class="ticket">
+    <!-- Left section -->
+    <div class="ticket-left">
+      <div class="event-info">
+        <h2>Coding Conf</h2>
+        <p>Jan 31, 2025 / Austin, TX</p>
+      </div>
 
+      <div class="user-info">
+        <img id="ticket-avatar" src="avatar.jpg" alt="User Avatar" class="avatar">
+        <div>
+          <h3 id="ticket-full-name">Jonatan Kristof</h3>
+          <p id="ticket-github-username">@jonatankristof0101</p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Right section -->
+    <div class="ticket-right">
+      <span>#60910</span>
+    </div>
   </div>
-</div>-->
-<!-- Generated tickets ends
-  <div class="attribution">
+</div>
+<!-- Generated tickets ends -->
+ 
+<!--   <div class="attribution">
     Coded by <a href="#">Ebiesuwa Sarah</a>.
   </div> -->
   <script src="script.js"></script>
