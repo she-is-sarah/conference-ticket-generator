@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 @font-face {
@@ -6,72 +6,188 @@
     src: url(assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf);
 }
 
-body{
-    font-family: 'Inconsolata'; 
-    background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-desktop.png");
-    background-position:  center, center;
-    background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover;
+html, body {
+    min-height: 100%;
     margin: 0;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 50px;
-  right: 0;
-  width: 250px;   /* adjust size */
-  height: 250px;
-  background: url("assets/images/pattern-squiggly-line-top.svg") no-repeat top right;
-  background-size: contain;
-  pointer-events: none; /* don’t block clicks */
-  z-index: 1;
+body {
+    font-family: 'Inconsolata';
+    margin: 0;
+    min-height: 100vh;
+    position: relative; /* ensures pseudo elements stay visible */
 }
 
-/* Bottom-left decoration */
-body::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 500px;   /* adjust size */
-  height: 500px;
-  background: url("assets/images/pattern-squiggly-line-bottom-desktop.svg") no-repeat bottom left;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 1;
+/* =================== DESKTOP (1000px+) =================== */
+@media screen and (min-width:1000px) {
+    body {
+        background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-desktop.png");
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
+    }
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        background: url("assets/images/pattern-squiggly-line-top.svg") no-repeat top right;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    body::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+        background: url("assets/images/pattern-squiggly-line-bottom-desktop.svg") no-repeat bottom left;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    header h1 {}
 }
 
-.logo{
+/* =================== TABLET (401px – 999px) =================== */
+@media screen and (min-width:401px) and (max-width:999px) {
+    body {
+        background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-tablet.png");
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
+    }
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        background: url("assets/images/pattern-squiggly-line-top.svg") no-repeat top right;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    body::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 500px;
+        height: 500px;
+        background: url("assets/images/pattern-squiggly-line-bottom-desktop.svg") no-repeat bottom left;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
+/* =================== MOBILE (max 400px) =================== */
+@media screen and (max-width:400px) {
+    body {
+        background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-mobile.png");
+        background-position: center, center;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, cover;
+    }
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        background: url("assets/images/pattern-squiggly-line-top.svg") no-repeat top right;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    body::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 100px;
+        background: url("assets/images/pattern-squiggly-line-bottom-desktop.svg") no-repeat bottom left;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    #form input {
+        width: 300px;
+    }
+    .upload-area, .image-preview-area, .submit {
+        width: 300px;
+    }
+    header, #ticket h1 {
+        width: 300px;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+    header h1 {
+        font-size: 1.5em;
+        margin-top: 30px;
+        text-align: center;
+    }
+    #ticket p {
+        width: 300px;
+        margin: auto;
+    }
+}
+
+/* =================== GENERAL ADJUSTMENTS =================== */
+@media screen and (min-width:401px) {
+    .upload-area, #form input, .submit, .image-preview-area {
+        width: 350px;
+        max-width: 400px;
+    }
+    header h1 {
+        font-weight: 800;
+        font-size: 3em;
+    }
+    #ticket h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* =================== OTHER STYLES =================== */
+.logo {
     width:120px;
-    margin-top: 15px;
+    margin-top: 30px;
 }
-header{
+header {
     text-align: center;
-
 }
-header h1{
-    font-weight: 800;
-    font-size: 3em;
+header h1 {
     color: hsl(0, 0%, 100%);
 }
-header p{
-    font-size: 15px;
+header p {
+    font-size: 16px;
     font-weight: 400;
-    color: hsl(245, 15%, 58%)
+    color: hsl(245, 15%, 58%);
 }
 
-form{
+/* Form */
+form {
     width: 300px;
-    margin: 0 auto ;
+    margin: 0 auto;
 }
 
-#form label{
-    color: hsl(0, 0%, 100%);
-    
-}
-
-/* Target only the avatar upload label */
+/* Upload Area */
 label[for="avatar-file"] {
     color: hsl(0, 0%, 100%);
     font-size: 16px;
@@ -79,19 +195,14 @@ label[for="avatar-file"] {
     margin-bottom: 15px;
     display: block;
 }
+#avatar-file { display: none; }
 
-/* Hide the default file input */
-#avatar-file {
-    display: none;
-}
-
-/* Style the upload area */
 .upload-area {
     border: 1.5px dashed hsl(245, 15%, 58%);
     border-radius: 12px;
     background-color: hsla(245, 19%, 35%, 0.3);
     padding: 40px 20px;
-    margin-bottom:5px ;
+    margin-bottom:5px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -100,36 +211,27 @@ label[for="avatar-file"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 350px;
-    max-width: 400px;
 }
-
 .upload-area:hover {
     border-color: hsl(13, 100%, 64%);
     background-color: hsla(245, 19%, 35%, 0.5);
 }
-
 .upload-icon {
     width: 48px;
     height: 48px;
-    align-items: center;
-    justify-content: center;
-    padding-top:5px ;
-    padding-bottom:5px ;
     margin-bottom: 20px;
     background-color: hsla(245, 19%, 35%, 0.3);
     border-radius: 8px;
     border:1px solid hsl(245, 15%, 58%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-
-/* Upload text */
 .upload-text {
     color: hsl(0, 0%, 80%);
     margin-bottom: 10px;
     font-size: 14px;
 }
-
 .upload-subtext {
     color: hsl(245, 15%, 70%);
     font-size: 10px;
@@ -140,25 +242,16 @@ label[for="avatar-file"] {
     width: 350px;
 }
 
-/* Image preview area styles*/ 
+/* Image preview area */
 .image-preview-area {
     border: 1.5px dashed hsl(245, 15%, 58%);
     border-radius: 12px;
     background-color: hsla(245, 19%, 35%, 0.3);
     padding: 20px;
     margin-bottom: 20px;
-    width: 350px;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     display: grid;
+    place-items: center;
 }
-.image-preview {
-    flex-shrink: 0;
-}
-
 .image-preview img {
     width: 50px;
     height: 50px;
@@ -166,17 +259,13 @@ label[for="avatar-file"] {
     object-fit: cover;
     border-radius: 8px;
     border: 1px solid hsl(245, 15%, 58%);
-    
 }
-
 .preview-controls {
     display: flex;
     gap: 8px;
 }
-
 .remove-btn, .change-btn {
     padding: 8px 10px;
-    border: 1px;
     border-radius: 6px;
     background-color: hsla(245, 19%, 35%, 0.5);
     color: hsl(0, 0%, 100%);
@@ -185,23 +274,19 @@ label[for="avatar-file"] {
     transition: all 0.2s ease;
 }
 
-
-/* Form */
-#form input{
+#form label { color: hsl(0, 0%, 100%); }
+#form input {
     border: 1px solid hsl(245, 15%, 58%);
     border-radius: 8px;
-    width:350px;
     background-color: hsla(245, 19%, 35%, 0.557);
     padding: 15px;
-    margin: 10px  0px 20px 0px;
+    margin: 10px 0 20px 0;
     color: hsl(0, 0%, 100%);
-
 }
-#form .submit{
+#form .submit {
     background-color: hsl(7, 71%, 60%);
     color: hsl(248, 70%, 10%);
     font-weight: 700;
-    width:350px;
     text-align: center;
     padding: 15px 0;
     border: none;
@@ -209,86 +294,57 @@ label[for="avatar-file"] {
     cursor: pointer;
 }
 
-#ticket{ 
+/* Ticket */
+#ticket { 
     display: none;
     text-align: center;
     color: hsl(0, 0%, 100%);
 }
-#ticket h1{
-    font-size: 2.5em;
-}
-#ticket p{
-    font-size: 16px;
-}
-#ticket-name-display{
+#ticket h1 { margin-top: 30px; }
+#ticket p { font-size: 16px; }
+#ticket-name-display {
     background: linear-gradient(45deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-#ticket-email-display{
-    color: hsl(7, 86%, 67%);
-}
+#ticket-email-display { color: hsl(7, 86%, 67%); }
 
 .ticket {
-  background-image: url(assets/images/pattern-ticket.svg);
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-size: 30em;
-  color: white;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  margin-top: 5em;
+    background-image: url(assets/images/pattern-ticket.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 20em; 
+    color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-top: 4em;
 }
-
-/* left section */
 .ticket-left {
-  flex: 3;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    flex: 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
-.event-info h2 {
-  margin: 0;
-  font-size: 1.4rem;
-}
-
-.event-info p {
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-/* user details */
+.event-info h2 { margin: 0; font-size: 1.4rem; }
+.event-info p { font-size: 0.9rem; color: #ccc; }
 .user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-
 .avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
 }
-
-.user-info h3 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.user-info p {
-  margin: 0;
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
-/* right section (ticket number) */
+.user-info h3 { margin: 0; font-size: 1.1rem; }
+.user-info p { margin: 0; color: #aaa; font-size: 0.9rem; }
 .ticket-right {
-  flex: 1;
-  border-left: 2px dashed #666;
-  font-weight: bold;
-  transform: rotate(90deg);
+    flex: 1;
+    border-left: 2px dashed #666;
+    font-weight: bold;
+    transform: rotate(90deg);
 }
