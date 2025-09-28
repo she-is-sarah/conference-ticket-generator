@@ -7,7 +7,6 @@
 }
 
 html, body {
-    min-height: 100%;
     margin: 0;
 }
 
@@ -83,8 +82,8 @@ body {
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 500px;
-        height: 500px;
+        width: 300px;
+        height: 300px;
         background: url("assets/images/pattern-squiggly-line-bottom-desktop.svg") no-repeat bottom left;
         background-size: contain;
         pointer-events: none;
@@ -249,7 +248,8 @@ label[for="avatar-file"] {
     background-color: hsla(245, 19%, 35%, 0.3);
     padding: 20px;
     margin-bottom: 20px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     place-items: center;
 }
 .image-preview img {
@@ -266,6 +266,7 @@ label[for="avatar-file"] {
 }
 .remove-btn, .change-btn {
     padding: 8px 10px;
+    border: 1px;
     border-radius: 6px;
     background-color: hsla(245, 19%, 35%, 0.5);
     color: hsl(0, 0%, 100%);
@@ -309,14 +310,13 @@ label[for="avatar-file"] {
 }
 #ticket-email-display { color: hsl(7, 86%, 67%); }
 
-.ticket {
+/* .ticket {
     background-image: url(assets/images/pattern-ticket.svg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: 20em; 
     color: white;
     width: 100%;
-    height: 100%;
     position: absolute;
     margin-top: 4em;
 }
@@ -347,4 +347,75 @@ label[for="avatar-file"] {
     border-left: 2px dashed #666;
     font-weight: bold;
     transform: rotate(90deg);
+} */
+
+.ticket {
+    background-image: url(assets/images/pattern-ticket.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;             /* Flexbox for left & right sections */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;              /* fixed ticket width */
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2em auto;          /* centers it horizontally */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.ticket-left {
+    flex: 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-info h2 { 
+    margin: 0; 
+    font-size: 1.4rem; 
+}
+.event-info p { 
+    margin: 4px 0 0;
+    font-size: 0.9rem; 
+    color: #ccc; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 1em;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.user-info h3 { 
+    margin: 0; 
+    font-size: 1.1rem; 
+}
+.user-info p { 
+    margin: 0; 
+    color: #aaa; 
+    font-size: 0.9rem; 
+}
+
+.ticket-right {
+    flex: 1;
+    border-left: 2px dashed #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #aaa;
+    writing-mode: vertical-rl;  /* rotates text vertically */
+    text-orientation: mixed;
+    padding: 10px;
 }
