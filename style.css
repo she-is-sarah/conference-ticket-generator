@@ -276,7 +276,7 @@ label[for="avatar-file"] {
 }
 
 #form label { color: hsl(0, 0%, 100%); }
-#form input {
+#form input, input:valid {
     border: 1px solid hsl(245, 15%, 58%);
     border-radius: 8px;
     background-color: hsla(245, 19%, 35%, 0.557);
@@ -284,6 +284,7 @@ label[for="avatar-file"] {
     margin: 10px 0 20px 0;
     color: hsl(0, 0%, 100%);
 }
+
 #form .submit {
     background-color: hsl(7, 71%, 60%);
     color: hsl(248, 70%, 10%);
@@ -348,21 +349,19 @@ label[for="avatar-file"] {
     font-weight: bold;
     transform: rotate(90deg);
 } */
-
-.ticket {
+/*------------------------------------*/
+/* .ticket {
     background-image: url(assets/images/pattern-ticket.svg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 20em;
     background-position: center;
     color: white;
-    display: flex;             /* Flexbox for left & right sections */
     align-items: center;
     justify-content: space-between;
-    width: 100%;              /* fixed ticket width */
+    width: 100%;           
     border-radius: 12px;
     overflow: hidden;
-    margin: 2em auto;          /* centers it horizontally */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    margin: 2em auto;         
 }
 
 .ticket-left {
@@ -371,9 +370,66 @@ label[for="avatar-file"] {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+} */
+/* .ticket {
+  background-image: url(assets/images/pattern-ticket.svg);
+  background-repeat: no-repeat;
+  background-size: 20em;
+  background-position: center;
+  color: white;
+  display: flex;                  
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;               
+  width: 90%;                     
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2em auto;              
+  padding: 1em;
 }
 
-.event-info h2 { 
+/* Ticket left side */
+.ticket-left {
+  flex: 3;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ticket right side */
+.ticket-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #aaa;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 10px;
+}
+
+/* Make it stack vertically on small screens */
+@media (max-width: 600px) {
+  .ticket {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ticket-right {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    justify-content: center;
+    padding: 0.5em 0;
+  }
+
+  .user-info {
+    justify-content: center;
+  }
+} */
+
+/* .event-info h2 { 
     margin: 0; 
     font-size: 1.4rem; 
 }
@@ -388,16 +444,16 @@ label[for="avatar-file"] {
     align-items: center;
     gap: 12px;
     margin-top: 1em;
-}
+} */
 
-.avatar {
+/* .avatar {
     width: 50px;
     height: 50px;
     border-radius: 10px;
     object-fit: cover;
-}
+} */
 
-.user-info h3 { 
+/* .user-info h3 { 
     margin: 0; 
     font-size: 1.1rem; 
 }
@@ -409,13 +465,319 @@ label[for="avatar-file"] {
 
 .ticket-right {
     flex: 1;
-    border-left: 2px dashed #666;
+    
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     font-weight: bold;
     color: #aaa;
-    writing-mode: vertical-rl;  /* rotates text vertically */
+    writing-mode: vertical-rl;  
     text-orientation: mixed;
     padding: 10px;
+} */
+
+/* ====== Ticket layout & centering (paste into your CSS) ====== */
+
+/* body / page helpers (safe to keep with your background rules) */
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* keep header + ticket centered */
+  gap: 2.25rem;
+  padding: 2.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* header styling if you have one */
+.page-header { text-align: center; color: #fff; max-width: 1200px; width: 100%; margin: 0 auto; }
+.page-header .logo { width: 56px; display:block; margin: 0 auto 1rem; }
+.page-header h1 { font-size: clamp(1.6rem, 3.5vw, 3rem); margin: 0 0 .5rem; font-weight: 700; }
+.page-header .sub { color: rgba(255,255,255,.75); margin: 0 0 1.5rem; font-family: 'Inconsolata'; }
+
+/* Ticket wrapper - centers everything */
+.ticket-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* The ticket itself - ALWAYS HORIZONTAL */
+.ticket {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  position: relative;
+  background-image: url("assets/images/pattern-ticket.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  padding: 32px;
+  gap: 20px;
+}
+
+/* Left area (event + user) */
+.ticket-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* Event info section */
+.event-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.event-info img {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.event-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-info h2 { 
+  margin: 0;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.event-info p { 
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* User info section */
+.user-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.user-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.user-info h3 { 
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.user-info p { 
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.user-info p img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Right stub / ticket number area - ALWAYS VERTICAL */
+.ticket-right {
+  width: 100px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-left: 2px dashed rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+/* Rotate ticket number vertically - ALWAYS */
+.ticket-right span {
+  transform: rotate(-90deg);
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+/* ========== MOBILE - STAYS HORIZONTAL, JUST SMALLER ========== */
+@media (max-width: 680px) {
+  .ticket-wrapper {
+    padding: 1rem;
+  }
+
+  .ticket {
+    flex-direction: row; /* STAYS HORIZONTAL */
+    padding: 20px;
+    border-radius: 16px;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .ticket-left {
+    gap: 18px;
+  }
+
+  .event-info {
+    gap: 12px;
+  }
+
+  .event-info img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .event-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .event-info p {
+    font-size: 0.85rem;
+  }
+
+  .user-info {
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .user-info h3 {
+    font-size: 1rem;
+  }
+
+  .user-info p {
+    font-size: 0.85rem;
+  }
+
+  .user-info p img {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Ticket number stays vertical but smaller */
+  .ticket-right {
+    width: 70px;
+    min-width: 70px;
+  }
+
+  .ticket-right span {
+    transform: rotate(-90deg); /* STAYS VERTICAL */
+    font-size: 0.95rem;
+  }
+}
+
+/* ========== VERY SMALL MOBILE ========== */
+@media (max-width: 480px) {
+  .ticket {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .ticket-left {
+    gap: 16px;
+  }
+
+  .event-info img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .event-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .event-info p {
+    font-size: 0.8rem;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .user-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .user-info p {
+    font-size: 0.8rem;
+  }
+
+  .ticket-right {
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .ticket-right span {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== TABLET ========== */
+@media (min-width: 681px) and (max-width: 900px) {
+  .ticket {
+    padding: 26px;
+    gap: 18px;
+  }
+
+  .event-info img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .event-info h2 {
+    font-size: 1.35rem;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ticket-right {
+    width: 85px;
+    min-width: 85px;
+  }
+
+  .ticket-right span {
+    font-size: 1rem;
+  }
 }
