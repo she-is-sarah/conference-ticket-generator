@@ -7,23 +7,23 @@
 }
 
 html, body {
-    margin: 0;
+  margin: 0;
 }
 
 body {
     font-family: 'Inconsolata';
     margin: 0;
     min-height: 100vh;
-    position: relative; /* ensures pseudo elements stay visible */
+    position: relative; 
 }
 
 /* =================== DESKTOP (1000px+) =================== */
 @media screen and (min-width:1000px) {
-    body {
-        background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-desktop.png");
-        background-position: center, center;
-        background-repeat: no-repeat, no-repeat;
-        background-size: cover, cover;
+  body {
+    background-image: url("assets/images/pattern-lines.svg"), url("assets/images/background-desktop.png");
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
     }
 
     body::before {
@@ -51,9 +51,28 @@ body {
         pointer-events: none;
         z-index: 1;
     }
-
-    header h1 {}
+    .ticket-wrapper {
+        padding: 15px;
+       }
+    .ticket-left {
+      max-width: 250px;
+      left: 150px;
+      position: relative;
+      padding-top: 5px;
+    }
+    .event-info h2 {
+      font-size: 1.8rem;
+    }
+    .event-info p{
+      font-size: 1rem;
+      text-align: left;
+    }
+    .ticket-right{
+        right: -460px;
+        top: -70px;
+    }
 }
+
 
 /* =================== TABLET (401px – 999px) =================== */
 @media screen and (min-width:401px) and (max-width:999px) {
@@ -88,6 +107,23 @@ body {
         background-size: contain;
         pointer-events: none;
         z-index: 1;
+    }
+    .ticket-left {
+      max-width: 250px;
+      left: 200px;
+      position: relative;
+      padding-top: 5px;
+    }
+    .event-info h2 {
+      font-size: 1.5rem;
+    }
+    .event-info p{
+      font-size: .9rem;
+      text-align: left;
+    }
+    .ticket-right{
+        right: -450px;
+        top: -70px;
     }
 }
 
@@ -145,6 +181,24 @@ body {
     #ticket p {
         width: 300px;
         margin: auto;
+        margin-top: 10px;
+    }
+    .ticket-left {
+      max-width: 250px;
+      left: 30px;
+      position: relative;
+      padding-top: 5px;
+    }
+    .event-info h2 {
+      font-size: 1.2rem;
+    }
+    .event-info p{
+      font-size: .85rem;
+      text-align: left;
+    }
+    .ticket-right{
+      right: -280px;
+      top: -70px;
     }
 }
 
@@ -173,6 +227,9 @@ header {
 }
 header h1 {
     color: hsl(0, 0%, 100%);
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
 }
 header p {
     font-size: 16px;
@@ -302,223 +359,34 @@ label[for="avatar-file"] {
     text-align: center;
     color: hsl(0, 0%, 100%);
 }
-#ticket h1 { margin-top: 30px; }
-#ticket p { font-size: 16px; }
+#ticket h1 { 
+  margin-top: 30px;
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto;
+ }
 #ticket-name-display {
     background: linear-gradient(45deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-#ticket-email-display { color: hsl(7, 86%, 67%); }
-
-/* .ticket {
-    background-image: url(assets/images/pattern-ticket.svg);
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-size: 20em; 
-    color: white;
-    width: 100%;
-    position: absolute;
-    margin-top: 4em;
+#ticket-email-display {
+  color: hsl(7, 86%, 67%);
 }
-.ticket-left {
-    flex: 3;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.event-info h2 { margin: 0; font-size: 1.4rem; }
-.event-info p { font-size: 0.9rem; color: #ccc; }
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-.user-info h3 { margin: 0; font-size: 1.1rem; }
-.user-info p { margin: 0; color: #aaa; font-size: 0.9rem; }
-.ticket-right {
-    flex: 1;
-    border-left: 2px dashed #666;
-    font-weight: bold;
-    transform: rotate(90deg);
-} */
-/*------------------------------------*/
-/* .ticket {
-    background-image: url(assets/images/pattern-ticket.svg);
-    background-repeat: no-repeat;
-    background-size: 20em;
-    background-position: center;
-    color: white;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;           
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 2em auto;         
-}
-
-.ticket-left {
-    flex: 3;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
-/* .ticket {
-  background-image: url(assets/images/pattern-ticket.svg);
-  background-repeat: no-repeat;
-  background-size: 20em;
-  background-position: center;
-  color: white;
-  display: flex;                  
-  align-items: center;
-  justify-content: space-between;
-  max-width: 600px;               
-  width: 90%;                     
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 2em auto;              
-  padding: 1em;
-}
-
-/* Ticket left side */
-.ticket-left {
-  flex: 3;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Ticket right side */
-.ticket-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: #aaa;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  padding: 10px;
-}
-
-/* Make it stack vertically on small screens */
-@media (max-width: 600px) {
-  .ticket {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .ticket-right {
-    writing-mode: horizontal-tb;
-    text-orientation: initial;
-    justify-content: center;
-    padding: 0.5em 0;
-  }
-
-  .user-info {
-    justify-content: center;
-  }
-} */
-
-/* .event-info h2 { 
-    margin: 0; 
-    font-size: 1.4rem; 
-}
-.event-info p { 
-    margin: 4px 0 0;
-    font-size: 0.9rem; 
-    color: #ccc; 
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 1em;
-} */
-
-/* .avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    object-fit: cover;
-} */
-
-/* .user-info h3 { 
-    margin: 0; 
-    font-size: 1.1rem; 
-}
-.user-info p { 
-    margin: 0; 
-    color: #aaa; 
-    font-size: 0.9rem; 
-}
-
-.ticket-right {
-    flex: 1;
-    
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    font-weight: bold;
-    color: #aaa;
-    writing-mode: vertical-rl;  
-    text-orientation: mixed;
-    padding: 10px;
-} */
-
-/* ====== Ticket layout & centering (paste into your CSS) ====== */
-
-/* body / page helpers (safe to keep with your background rules) */
-.page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* keep header + ticket centered */
-  gap: 2.25rem;
-  padding: 2.5rem 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* header styling if you have one */
-.page-header { text-align: center; color: #fff; max-width: 1200px; width: 100%; margin: 0 auto; }
-.page-header .logo { width: 56px; display:block; margin: 0 auto 1rem; }
-.page-header h1 { font-size: clamp(1.6rem, 3.5vw, 3rem); margin: 0 0 .5rem; font-weight: 700; }
-.page-header .sub { color: rgba(255,255,255,.75); margin: 0 0 1.5rem; font-family: 'Inconsolata'; }
 
 /* Ticket wrapper - centers everything */
 .ticket-wrapper {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-}
-
-/* The ticket itself - ALWAYS HORIZONTAL */
-.ticket {
+  margin: auto;
+  margin-top: 5rem;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  border-radius: 20px;
   max-width: 720px;
   width: 100%;
-  position: relative;
   background-image: url("assets/images/pattern-ticket.svg");
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: cover;
-  padding: 32px;
-  gap: 20px;
+  background-position: center;
+  background-size: contain;
 }
 
 /* Left area (event + user) */
@@ -534,12 +402,12 @@ label[for="avatar-file"] {
 .event-info {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 10px;
 }
 
 .event-info img {
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
   flex-shrink: 0;
 }
 
@@ -552,30 +420,29 @@ label[for="avatar-file"] {
 .event-info h2 { 
   margin: 0;
   font-family: 'Inconsolata', monospace;
-  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.3px;
   color: #fff;
   line-height: 1.2;
+  text-align: left;
 }
 
 .event-info p { 
   margin: 0;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 1rem;
   line-height: 1.3;
 }
 
 /* User info section */
 .user-info {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   align-items: center;
 }
 
 .avatar {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   object-fit: cover;
   flex-shrink: 0;
@@ -612,172 +479,21 @@ label[for="avatar-file"] {
   flex-shrink: 0;
 }
 
+
 /* Right stub / ticket number area - ALWAYS VERTICAL */
 .ticket-right {
   width: 100px;
   min-width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  border-left: 2px dashed rgba(255, 255, 255, 0.25);
-  flex-shrink: 0;
 }
 
 /* Rotate ticket number vertically - ALWAYS */
 .ticket-right span {
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   display: inline-block;
   color: rgba(255, 255, 255, 0.5);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.5px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   white-space: nowrap;
-}
-
-/* ========== MOBILE - STAYS HORIZONTAL, JUST SMALLER ========== */
-@media (max-width: 680px) {
-  .ticket-wrapper {
-    padding: 1rem;
-  }
-
-  .ticket {
-    flex-direction: row; /* STAYS HORIZONTAL */
-    padding: 20px;
-    border-radius: 16px;
-    gap: 16px;
-    max-width: 100%;
-  }
-
-  .ticket-left {
-    gap: 18px;
-  }
-
-  .event-info {
-    gap: 12px;
-  }
-
-  .event-info img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .event-info h2 {
-    font-size: 1.2rem;
-  }
-
-  .event-info p {
-    font-size: 0.85rem;
-  }
-
-  .user-info {
-    gap: 12px;
-  }
-
-  .avatar {
-    width: 48px;
-    height: 48px;
-  }
-
-  .user-info h3 {
-    font-size: 1rem;
-  }
-
-  .user-info p {
-    font-size: 0.85rem;
-  }
-
-  .user-info p img {
-    width: 16px;
-    height: 16px;
-  }
-
-  /* Ticket number stays vertical but smaller */
-  .ticket-right {
-    width: 70px;
-    min-width: 70px;
-  }
-
-  .ticket-right span {
-    transform: rotate(-90deg); /* STAYS VERTICAL */
-    font-size: 0.95rem;
-  }
-}
-
-/* ========== VERY SMALL MOBILE ========== */
-@media (max-width: 480px) {
-  .ticket {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .ticket-left {
-    gap: 16px;
-  }
-
-  .event-info img {
-    width: 36px;
-    height: 36px;
-  }
-
-  .event-info h2 {
-    font-size: 1.1rem;
-  }
-
-  .event-info p {
-    font-size: 0.8rem;
-  }
-
-  .avatar {
-    width: 44px;
-    height: 44px;
-  }
-
-  .user-info h3 {
-    font-size: 0.95rem;
-  }
-
-  .user-info p {
-    font-size: 0.8rem;
-  }
-
-  .ticket-right {
-    width: 60px;
-    min-width: 60px;
-  }
-
-  .ticket-right span {
-    font-size: 0.9rem;
-  }
-}
-
-/* ========== TABLET ========== */
-@media (min-width: 681px) and (max-width: 900px) {
-  .ticket {
-    padding: 26px;
-    gap: 18px;
-  }
-
-  .event-info img {
-    width: 44px;
-    height: 44px;
-  }
-
-  .event-info h2 {
-    font-size: 1.35rem;
-  }
-
-  .avatar {
-    width: 56px;
-    height: 56px;
-  }
-
-  .ticket-right {
-    width: 85px;
-    min-width: 85px;
-  }
-
-  .ticket-right span {
-    font-size: 1rem;
-  }
 }
