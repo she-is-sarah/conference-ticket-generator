@@ -46,7 +46,11 @@
 
   <label for="email">Email Address</label><br>
   <input type="email" id="email" name="email" placeholder="example@email.com" required><br>
-  
+  <div id="email-error" class="input-error-message" style="display: none;">
+  <img src="assets/images/icon-error.svg" alt="error icon" class="error-icon" />
+  <span>Please enter a valid email address.</span>
+</div>
+
   <label for="github">GitHub Username</label><br>
   <input type="text" id="github" name="github" placeholder="@yourusername" required><br>
   
@@ -76,7 +80,7 @@
       <div class="user-info">
         <img id="ticket-avatar" src="avatar.jpg" alt="User Avatar" class="avatar">
         <div>
-          <h3><span id="ticket-name-display">.</span></h3>
+          <h3 id="ticket-card-display"></h3>
           
           <p><img src="assets/images/icon-github.svg" alt="github icon" class="github-icon">
           <span id="ticket-github-username">@jonatankristof0101</span>

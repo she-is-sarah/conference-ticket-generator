@@ -129,6 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const github = document.getElementById('github').value;
 
             document.getElementById('ticket-name-display').textContent = name;
+            document.getElementById('ticket-card-display').textContent = name;
+            
             document.getElementById('ticket-email-display').textContent = email;
             document.getElementById('ticket-github-username').textContent =
                 github.startsWith('@') ? github : '@' + github;

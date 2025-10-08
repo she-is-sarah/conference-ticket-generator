@@ -67,6 +67,9 @@ body {
       font-size: 1rem;
       text-align: left;
     }
+    .event-info{
+      margin-bottom: 12px;
+    }
     .ticket-right{
         right: -460px;
         top: -70px;
@@ -353,6 +356,27 @@ label[for="avatar-file"] {
     cursor: pointer;
 }
 
+input.error {
+  border: 1.5px solid #e74c3c;
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+.input-error-message {
+  display: flex;
+  align-items: center;
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.input-error-message .error-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  filter: brightness(0) saturate(100%) invert(24%) sepia(92%) saturate(747%) hue-rotate(340deg) brightness(95%) contrast(92%);
+}
+
+
 /* Ticket */
 #ticket { 
     display: none;
@@ -431,6 +455,7 @@ label[for="avatar-file"] {
   margin: 0;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.3;
+  /* margin-bottom: 12px; */
 }
 
 /* User info section */
@@ -458,7 +483,7 @@ label[for="avatar-file"] {
 .user-info h3 { 
   margin: 0;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #fff;
   line-height: 1.2;
 }
